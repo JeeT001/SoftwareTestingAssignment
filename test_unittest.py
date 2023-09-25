@@ -17,16 +17,16 @@ class TestBowlingGame(unittest.TestCase):
         self.assertEqual(self.game.score(), 20)
         
     def testOneSpare(self):
-        self.game.rolls(5)
-        self.game.rolls(5)
-        self.game.rolls(3)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(3)
         self.rollMany(0,17)
         self.assertEqual(self.game.score(), 16)
         
     def testOneStrike(self):
-        self.game.rolls(10)
-        self.game.rolls(4)
-        self.game.rolls(3)
+        self.game.roll(10)
+        self.game.roll(4)
+        self.game.roll(3)
         self.rollMany(0,16)
         self.assertEqual(self.game.score(), 24)
         
@@ -34,13 +34,13 @@ class TestBowlingGame(unittest.TestCase):
         self.rollMany(10,12)
         self.assertEqual(self.game.score(), 300)
         
-    def testOneSpare(self):
+    def testAllFives(self):
         self.rollMany(5,21)
         self.assertEqual(self.game.score(), 150)
         
     def rollMany(self, pins,rolls):
         for _ in range(rolls):
-            self.game.rolls(pins)
+            self.game.roll(pins)
             
 if __name__ == "__main__":
     unittest.main()
