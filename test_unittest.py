@@ -6,15 +6,16 @@ from BowlingGame import BowlingGame  # Assuming BowlingGame is defined in Bowlin
 class TestBowlingGame(unittest.TestCase):
 
     def setUp(self):
-        self.game = BowlingGame.BowlingGame()
+        self.game = BowlingGame()
 
     def testGutterGame(self):
-        for i in range(0, 20):
-            self.game.rolls(0)
-        assert self.game.score()==0
+        self.rollMany(0, 20)
+        self.assertEqual(self.game.score(), 0)
+        
     def testAllOnes(self):
         self.rollMany(1, 20)
         assert self.game.score()==20
+        
     def testOneSpare(self):
         self.game.rolls(5)
         self.game.rolls(5)
