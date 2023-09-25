@@ -1,5 +1,3 @@
-#This file has information about test cases which you need to test.
-
 import unittest
 from BowlingGame import BowlingGame  # Assuming BowlingGame is defined in BowlingGame.py
 
